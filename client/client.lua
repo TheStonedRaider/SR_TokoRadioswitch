@@ -4,12 +4,14 @@
 
 ESX = nil
 local PlayerData                = {}
+
 Citizen.CreateThread(function()
   while ESX == nil do
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
     Citizen.Wait(0)
-  end
+	end
 end)
+
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
   PlayerData.job = job
@@ -17,7 +19,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		Wait(10)
+		Wait(1)
 
 if IsControlJustPressed(1, Config.Key2) and IsControlPressed(1, Config.Key1)   then
 			OpenRadioMenu()	
@@ -29,14 +31,15 @@ end)
 
 
 function OpenRadioMenu()
-
+        local _source = source
+        local PlayerData = ESX.GetPlayerData(_source)
   local elements = {
     {label = _U('leavepublic'), value = 'leavepublic'}
 	
 }
 
 
-    if (PlayerData.job.name == 'police' or PlayerData.job.name == 'fire' or PlayerData.job.name == 'ambulance') then
+    if (PlayerData.job.name == 'police' or PlayerData.job.name == 'fire' or PlayerData.job.name == 'ambulance' or PlayerData.job.name == 'policeambulance' ) then
      
       table.insert(elements, { label = _U('leavepolice'), value = 'leavepolice'})  
       table.insert(elements, { label = _U('R1'), value = 'radio6'})  
