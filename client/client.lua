@@ -161,7 +161,7 @@ end
 
       end 
       CurrentAction     = 'radio'
-      CurrentActionMsg  = _U('open_cloackroom')
+      CurrentActionMsg  = _U('Channel sellect')
       CurrentActionData = {}
 
     end,
@@ -170,7 +170,7 @@ end
       menu.close()
 
       CurrentAction     = 'radio'
-      CurrentActionMsg  = _U('open_cloackroom')
+      CurrentActionMsg  = _U('Channel sellect')
       CurrentActionData = {}
     end
   )
